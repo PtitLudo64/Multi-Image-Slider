@@ -1,0 +1,386 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.scene {
+  position: relative;
+  -webkit-perspective: 1500px;
+          perspective: 1500px;
+  -webkit-perspective-origin: 0px 0px;
+          perspective-origin: 0px 0px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.modal {
+  position: relative;
+  display: inline-block;
+  visibility: hidden;
+  width: 60px;
+  height: 40px;
+  border-radius: 1px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  background-color: transparent;
+  -webkit-transform: translateZ(0px);
+          transform: translateZ(0px);
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+  -webkit-box-shadow: 0px 0px 1px 1px #fff9;
+          box-shadow: 0px 0px 1px 1px #fff9;
+}
+
+.modal p {
+  margin-top: .5px;
+  margin-left: .5px;
+  font-size: 2px;
+  pointer-events: none;
+}
+
+.banner1,
+.banner2,
+.banner3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: translateY(-200px);
+          transform: translateY(-200px);
+}
+
+.panel0 {
+  position: absolute;
+  width: 62px;
+  height: 400px;
+  overflow: hidden;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  -webkit-transform: translate(-50%, 0%) rotateY(var(--angle0)) translateZ(379px);
+          transform: translate(-50%, 0%) rotateY(var(--angle0)) translateZ(379px);
+  -webkit-transition: -webkit-filter .4s ease;
+  transition: -webkit-filter .4s ease;
+  transition: filter .4s ease;
+  transition: filter .4s ease, -webkit-filter .4s ease;
+}
+
+.panel0::before {
+  position: absolute;
+  left: var(--left);
+  content: url(./img/0a.jpg);
+}
+
+.panel0:nth-child(1) {
+  --left: 0px;
+  --angle0: 0deg;
+}
+
+.panel0:nth-child(2) {
+  --left: -60px;
+  --angle0: 9deg;
+}
+
+.panel0:nth-child(3) {
+  --left: -120px;
+  --angle0: 18deg;
+}
+
+.panel0:nth-child(4) {
+  --left: -180px;
+  --angle0: 27deg;
+}
+
+.panel0:nth-child(5) {
+  --left: -240px;
+  --angle0: 36deg;
+}
+
+.panel0:nth-child(6) {
+  --left: -300px;
+  --angle0: 45deg;
+}
+
+.panel0:nth-child(7) {
+  --left: -360px;
+  --angle0: 54deg;
+}
+
+.panel0:nth-child(8) {
+  --left: -420px;
+  --angle0: 63deg;
+}
+
+.panel0:nth-child(9) {
+  --left: -480px;
+  --angle0: 72deg;
+}
+
+.panel0:nth-child(10) {
+  --left: -540px;
+  --angle0: 81deg;
+}
+
+.panel1 {
+  position: absolute;
+  width: 62px;
+  height: 400px;
+  overflow: hidden;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  -webkit-transform: translate(-50%, 16.66667%) rotateY(var(--angle1)) translateZ(379px);
+          transform: translate(-50%, 16.66667%) rotateY(var(--angle1)) translateZ(379px);
+  -webkit-transition: -webkit-filter .4s ease;
+  transition: -webkit-filter .4s ease;
+  transition: filter .4s ease;
+  transition: filter .4s ease, -webkit-filter .4s ease;
+}
+
+.panel1::before {
+  position: absolute;
+  left: var(--left);
+  content: url(./img/1a.jpg);
+}
+
+.panel1:nth-child(1) {
+  --left: 0px;
+  --angle1: 120deg;
+}
+
+.panel1:nth-child(2) {
+  --left: -60px;
+  --angle1: 129deg;
+}
+
+.panel1:nth-child(3) {
+  --left: -120px;
+  --angle1: 138deg;
+}
+
+.panel1:nth-child(4) {
+  --left: -180px;
+  --angle1: 147deg;
+}
+
+.panel1:nth-child(5) {
+  --left: -240px;
+  --angle1: 156deg;
+}
+
+.panel1:nth-child(6) {
+  --left: -300px;
+  --angle1: 165deg;
+}
+
+.panel1:nth-child(7) {
+  --left: -360px;
+  --angle1: 174deg;
+}
+
+.panel1:nth-child(8) {
+  --left: -420px;
+  --angle1: 183deg;
+}
+
+.panel1:nth-child(9) {
+  --left: -480px;
+  --angle1: 192deg;
+}
+
+.panel1:nth-child(10) {
+  --left: -540px;
+  --angle1: 201deg;
+}
+
+.panel2 {
+  position: absolute;
+  width: 62px;
+  height: 400px;
+  overflow: hidden;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  -webkit-transform: translate(-50%, 33.33333%) rotateY(var(--angle2)) translateZ(379px);
+          transform: translate(-50%, 33.33333%) rotateY(var(--angle2)) translateZ(379px);
+  -webkit-transition: -webkit-filter .4s ease;
+  transition: -webkit-filter .4s ease;
+  transition: filter .4s ease;
+  transition: filter .4s ease, -webkit-filter .4s ease;
+}
+
+.panel2::before {
+  position: absolute;
+  left: var(--left);
+  content: url(./img/2a.jpg);
+}
+
+.panel2:nth-child(1) {
+  --left: 0px;
+  --angle2: 240deg;
+}
+
+.panel2:nth-child(2) {
+  --left: -60px;
+  --angle2: 249deg;
+}
+
+.panel2:nth-child(3) {
+  --left: -120px;
+  --angle2: 258deg;
+}
+
+.panel2:nth-child(4) {
+  --left: -180px;
+  --angle2: 267deg;
+}
+
+.panel2:nth-child(5) {
+  --left: -240px;
+  --angle2: 276deg;
+}
+
+.panel2:nth-child(6) {
+  --left: -300px;
+  --angle2: 285deg;
+}
+
+.panel2:nth-child(7) {
+  --left: -360px;
+  --angle2: 294deg;
+}
+
+.panel2:nth-child(8) {
+  --left: -420px;
+  --angle2: 303deg;
+}
+
+.panel2:nth-child(9) {
+  --left: -480px;
+  --angle2: 312deg;
+}
+
+.panel2:nth-child(10) {
+  --left: -540px;
+  --angle2: 321deg;
+}
+
+#valeur {
+  position: absolute;
+  margin-left: 1em;
+  color: #aaa;
+}
+
+.valeurAngle {
+  position: fixed;
+  bottom: 3%;
+  width: 80%;
+}
+
+input[type=range].valAngle {
+  width: 100%;
+  margin: 6.5px 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+input[type=range].valAngle:focus {
+  outline: none;
+}
+
+input[type=range].valAngle::-webkit-slider-runnable-track {
+  background: #ff0000;
+  border: 0;
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+}
+
+input[type=range].valAngle::-webkit-slider-thumb {
+  margin-top: -6.5px;
+  width: 15px;
+  height: 15px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+input[type=range].valAngle:focus::-webkit-slider-runnable-track {
+  background: #ff0000;
+}
+
+input[type=range].valAngle::-moz-range-track {
+  background: #000000;
+  border: 0;
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+}
+
+input[type=range].valAngle::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+input[type=range].valAngle::-ms-track {
+  background: #ff0000;
+  border-color: transparent;
+  border-width: 6.5px 0;
+  color: transparent;
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+}
+
+input[type=range].valAngle::-ms-fill-lower {
+  background: #ff0000;
+  border: 0;
+}
+
+input[type=range].valAngle::-ms-fill-upper {
+  background: #ff0000;
+  border: 0;
+}
+
+input[type=range].valAngle::-ms-thumb {
+  width: 15px;
+  height: 15px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+
+input[type=range].valAngle:focus::-ms-fill-lower {
+  background: #ff0000;
+}
+
+input[type=range].valAngle:focus::-ms-fill-upper {
+  background: #ff0000;
+}
+
+@supports (-ms-ime-align: auto) {
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+  input[type=range].valAngle {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
+}
+/*# sourceMappingURL=style.css.map */

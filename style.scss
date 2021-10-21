@@ -1,0 +1,212 @@
+$largImg: 600;
+$hautImg: 200;
+$nbPanel: 10;
+$Zaxe: 379;
+
+$largPanel: ($largImg / $nbPanel);
+
+// $largPanel: 47.49;
+$nbImages: 3;
+$stepY: 50 / $nbImages;
+$stepTheta: 360 / $nbImages;
+$pCent: '%';
+
+* {
+    font-family: Arial,
+    Helvetica,
+    sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.scene {
+    position: relative;
+    perspective: 1500px;
+    perspective-origin: 0px 0px;
+    transform-style: preserve-3d;
+}
+
+.modal {
+    position: relative;
+    display: inline-block;
+    visibility: hidden;
+    width: 60px;
+    height: 40px;
+    border-radius: 1px;
+    transform-style: preserve-3d;
+    background-color: transparent;
+    transform: translateZ(0px);
+    transition: all .3s ease-in;
+    box-shadow: 0px 0px 1px 1px #fff9;
+}
+.modal p {
+    margin-top: .5px;
+    margin-left: .5px;
+    font-size: 2px;
+    pointer-events: none;
+}
+
+.banner1,
+.banner2,
+.banner3 {
+    display: flex;
+    transform-style: preserve-3d;
+    transform: translateY(#{$hautImg *-1}px);
+}
+
+@for $j from 0 to $nbImages {
+    .panel#{$j} {
+        position: absolute;
+        width: #{$largPanel+2}px;
+        height: 400px;
+        overflow: hidden;
+        // opacity: .8;
+        filter: grayscale(1);
+        transform: translate(-50%, #{$j*$stepY}#{$pCent}) rotateY(var(--angle#{$j})) translateZ(#{$Zaxe}px);
+        transition: filter .4s ease;
+    }
+    .panel#{$j}::before {
+        position: absolute;
+        left: var(--left);
+        content: url(./img/#{$j}a.jpg);
+    }
+    @for $i from 0 to $nbPanel {
+        .panel#{$j}:nth-child(#{$i +1}) {
+            --left: #{$largPanel * $i * -1}px;
+            --angle#{$j}: #{(360deg /40 *$i) + $stepTheta*$j};
+        }
+
+    }
+}
+
+
+
+// .screen {
+//     position: absolute;
+//     width: 550px;
+//     height: 250px;
+//     // background-color: #f00;
+//     border-radius: 25%;
+//     background-image: linear-gradient(90deg, transparent, #000a 15%, #000d, #000d, #000a 85%, transparent);
+//     transform: translate(-50%, -146px);
+// }
+
+#valeur {
+    position: absolute;
+    margin-left: 1em;
+    color: #aaa;
+}
+
+.valeurAngle {
+    position: fixed;
+    bottom: 3%;
+    width: 80%;
+}
+
+input[type=range].valAngle {
+    width: 100%;
+    margin: 6.5px 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+}
+
+input[type=range].valAngle:focus {
+    outline: none;
+}
+
+input[type=range].valAngle::-webkit-slider-runnable-track {
+    background: #ff0000;
+    border: 0;
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+}
+
+input[type=range].valAngle::-webkit-slider-thumb {
+    margin-top: -6.5px;
+    width: 15px;
+    height: 15px;
+    background: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 50px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+input[type=range].valAngle:focus::-webkit-slider-runnable-track {
+    background: #ff0000;
+}
+
+input[type=range].valAngle::-moz-range-track {
+    background: #000000;
+    border: 0;
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+}
+
+input[type=range].valAngle::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+input[type=range].valAngle::-ms-track {
+    background: #ff0000;
+    border-color: transparent;
+    border-width: 6.5px 0;
+    color: transparent;
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+}
+
+input[type=range].valAngle::-ms-fill-lower {
+    background: #ff0000;
+    border: 0;
+}
+
+input[type=range].valAngle::-ms-fill-upper {
+    background: #ff0000;
+    border: 0;
+}
+
+input[type=range].valAngle::-ms-thumb {
+    width: 15px;
+    height: 15px;
+    background: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 0px;
+    /*Needed to keep the Edge thumb centred*/
+}
+
+input[type=range].valAngle:focus::-ms-fill-lower {
+    background: #ff0000;
+}
+
+input[type=range].valAngle:focus::-ms-fill-upper {
+    background: #ff0000;
+}
+
+@supports (-ms-ime-align:auto) {
+
+    /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+    input[type=range].valAngle {
+        margin: 0;
+        /*Edge starts the margin from the thumb, not the track as other browsers do*/
+    }
+}
