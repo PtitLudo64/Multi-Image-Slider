@@ -59,9 +59,11 @@ banner3.addEventListener('mouseleave', () => {
 });
 
 banner1.addEventListener('click', () => {
-    modal.setAttribute('style', 'visibility:visible; background-color:#0009; transform:scale(10) translateZ(500px);');
+    modal.setAttribute('style', 'visibility:visible; background-color:#0009; transform:scale(1) translate3D(-50%, -50%, 500px);');
+    // modal.setAttribute('style', 'visibility:visible; background-color:#0009; transform:scale(1);');
 });
 
 modal.addEventListener('click', () => {
-    modal.setAttribute('style', 'background-color:transparent; transform:scale(1); visibility:hidden;');
+    modal.setAttribute('style', 'background-color:transparent; transform:translate3D(-50%, -50%, 0px) scale(0.01); visibility:hidden;');
+    // modal.setAttribute('style', 'background-color:transparent; transform:scale(.01); visibility:hidden;');
 });

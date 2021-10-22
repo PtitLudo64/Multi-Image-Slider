@@ -5,11 +5,12 @@ $Zaxe: 379;
 
 $largPanel: ($largImg / $nbPanel);
 
-// $largPanel: 47.49;
 $nbImages: 3;
 $stepY: 50 / $nbImages;
 $stepTheta: 360 / $nbImages;
 $pCent: '%';
+$modalW: 100vw * 50/100;
+$modalH: 100vh * 50/100;
 
 * {
     font-family: Arial,
@@ -17,6 +18,7 @@ $pCent: '%';
     sans-serif;
     margin: 0;
     padding: 0;
+    --couleur: 255, 0, 0;
 }
 
 body {
@@ -36,23 +38,23 @@ body {
 }
 
 .modal {
-    position: relative;
-    display: inline-block;
+    position: fixed;
+    // display:block;
     visibility: hidden;
-    width: 60px;
-    height: 40px;
-    border-radius: 1px;
-    transform-style: preserve-3d;
+    width: $modalW;
+    height: $modalH;
+    border-radius: 10px;
     background-color: transparent;
-    transform: translateZ(0px);
-    transition: all .3s ease-in;
-    box-shadow: 0px 0px 1px 1px #fff9;
-}
-.modal p {
-    margin-top: .5px;
-    margin-left: .5px;
-    font-size: 2px;
-    pointer-events: none;
+    transform: translate3D(-50%, -50%, 0px) scale(0.01);
+    box-shadow: 0px 0px 3px 3px rgba(var(--couleur), .5);
+    transition: all .5s ease;
+
+    p {
+        margin-top: 5px;
+        margin-left: 5px;
+        font-size: 1em;
+        pointer-events: none;
+    }
 }
 
 .banner1,
@@ -124,7 +126,7 @@ input[type=range].valAngle:focus {
 }
 
 input[type=range].valAngle::-webkit-slider-runnable-track {
-    background: #ff0000;
+    background: rgba(var(--couleur), 1);
     border: 0;
     width: 100%;
     height: 2px;
@@ -143,11 +145,11 @@ input[type=range].valAngle::-webkit-slider-thumb {
 }
 
 input[type=range].valAngle:focus::-webkit-slider-runnable-track {
-    background: #ff0000;
+    background: rgba(var(--couleur), 1);
 }
 
 input[type=range].valAngle::-moz-range-track {
-    background: #000000;
+    background: rgba(var(--couleur), 1);
     border: 0;
     width: 100%;
     height: 2px;
@@ -164,7 +166,7 @@ input[type=range].valAngle::-moz-range-thumb {
 }
 
 input[type=range].valAngle::-ms-track {
-    background: #ff0000;
+    background: rgba(var(--couleur), 1);
     border-color: transparent;
     border-width: 6.5px 0;
     color: transparent;
@@ -174,12 +176,12 @@ input[type=range].valAngle::-ms-track {
 }
 
 input[type=range].valAngle::-ms-fill-lower {
-    background: #ff0000;
+    background: rgba(var(--couleur), 1);
     border: 0;
 }
 
 input[type=range].valAngle::-ms-fill-upper {
-    background: #ff0000;
+    background: rgba(var(--couleur), 1);
     border: 0;
 }
 
@@ -195,11 +197,11 @@ input[type=range].valAngle::-ms-thumb {
 }
 
 input[type=range].valAngle:focus::-ms-fill-lower {
-    background: #ff0000;
+    background: rgba(var(--couleur), 1);
 }
 
 input[type=range].valAngle:focus::-ms-fill-upper {
-    background: #ff0000;
+    background: rgba(var(--couleur), 1);
 }
 
 @supports (-ms-ime-align:auto) {
