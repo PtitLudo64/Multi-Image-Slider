@@ -39,20 +39,47 @@ body {
 
 .modal {
     position: fixed;
-    // display:block;
+    display:grid;
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: 10% 30% 1fr;
+    gap: 5px 5px;
+    grid-template-areas:
+    "Titre Titre"
+    "Image SousTitre"
+    "Desc Desc";
     visibility: hidden;
     width: $modalW;
     height: $modalH;
     border-radius: 10px;
     background-color: transparent;
     transform: translate3D(-50%, -50%, 0px) scale(0.01);
-    box-shadow: 0px 0px 3px 3px rgba(var(--couleur), .5);
+    box-shadow: 0px 0px 10px 5px rgba(var(--couleur), .5);
     transition: all .5s ease;
 
-    p {
-        margin-top: 5px;
-        margin-left: 5px;
-        font-size: 1em;
+    .titre {
+        grid-area: Titre;
+        padding: 5px;
+        pointer-events: none;
+        text-align: center;
+        font-size: 2em;
+        color: rgba(var(--couleur),0.8);
+    }
+    .image {
+        grid-area: Image;
+        padding: 5px;
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    .desc {
+        grid-area: Desc;
+        padding: 5px;
+        pointer-events: none;
+    }
+    .sousTitre {
+        grid-area: SousTitre;
+        padding: 5px;
         pointer-events: none;
     }
 }

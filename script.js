@@ -59,11 +59,36 @@ banner3.addEventListener('mouseleave', () => {
 });
 
 banner1.addEventListener('click', () => {
-    modal.setAttribute('style', 'visibility:visible; background-color:#0009; transform:scale(1) translate3D(-50%, -50%, 500px);');
-    // modal.setAttribute('style', 'visibility:visible; background-color:#0009; transform:scale(1);');
+    const modTitle = document.querySelector('.modal .titre');
+    modTitle.textContent = 'Titre Banner 1';
+    const modSubTitle = document.querySelector('.modal .sousTitre');
+    modSubTitle.textContent = 'Sous Titre Banner 1';
+    const modImage = document.querySelector('.modal .image');
+    modImage.innerHTML='<img src="./img/0a.jpg">';
+    modal.setAttribute('style', 'visibility:visible; background-color:#000b; transform:scale(1) translate3D(-50%, -50%, 500px);');
 });
+
+banner2.addEventListener('click', () => {
+    const modTitle = document.querySelector('.modal .titre');
+    modTitle.textContent = 'Titre Banner 2';
+    const modSubTitle = document.querySelector('.modal .sousTitre');
+    modSubTitle.textContent = 'Sous Titre Banner 2';
+    const modImage = document.querySelector('.modal .image');
+    modImage.innerHTML = '<img src="./img/1a.jpg">';
+    modal.setAttribute('style', 'visibility:visible; background-color:#0009; transform:scale(1) translate3D(-50%, -50%, 500px);');
+});
+
+banner3.addEventListener('click', () => {
+    const modTitle = document.querySelector('.modal .titre');
+    modTitle.textContent = 'Titre Banner 3';
+    const modSubTitle = document.querySelector('.modal .sousTitre');
+    modSubTitle.textContent = 'Sous Titre Banner 3';
+    const modImage = document.querySelector('.modal .image');
+    modImage.innerHTML = '<img src="./img/2a.jpg">';
+    modal.setAttribute('style', 'visibility:visible; background-color:#0009; transform:scale(1) translate3D(-50%, -50%, 500px);');
+});
+
 
 modal.addEventListener('click', () => {
     modal.setAttribute('style', 'background-color:transparent; transform:translate3D(-50%, -50%, 0px) scale(0.01); visibility:hidden;');
-    // modal.setAttribute('style', 'background-color:transparent; transform:scale(.01); visibility:hidden;');
 });
