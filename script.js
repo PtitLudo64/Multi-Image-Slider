@@ -3,10 +3,12 @@ let valCursor = document.querySelector('.valAngle');
 const banner1 = document.querySelector('.banner1');
 const banner2 = document.querySelector('.banner2');
 const banner3 = document.querySelector('.banner3');
+const banner4 = document.querySelector('.banner4');
 const panels0 = document.querySelectorAll('.panel0');
 const panels1 = document.querySelectorAll('.panel1');
 const panels2 = document.querySelectorAll('.panel2');
-const screen = document.querySelector('.screen')
+const panels3 = document.querySelectorAll('.panel3');
+// const screen = document.querySelector('.screen')
 const hautImg = -200;
 const modal = document.querySelector('.modal');
 
@@ -20,6 +22,9 @@ function AffVal() {
         valCursor.value + 'deg) translateY(' +
         (hautImg + (valCursor.value / 3.6) * -1) + 'px);');
     banner3.setAttribute('style', 'transform:rotateY(' +
+        valCursor.value + 'deg) translateY(' +
+        (hautImg + (valCursor.value / 3.6) * -1) + 'px);');
+    banner4.setAttribute('style', 'transform:rotateY(' +
         valCursor.value + 'deg) translateY(' +
         (hautImg + (valCursor.value / 3.6) * -1) + 'px);');
     // screen.setAttribute('style', 'transform:translate( -50%, ' +
@@ -41,6 +46,11 @@ banner3.addEventListener('mouseover', () => {
         element.setAttribute('style', 'filter:grayscale(0); cursor:pointer;');
     })
 });
+banner4.addEventListener('mouseover', () => {
+    panels3.forEach(element => {
+        element.setAttribute('style', 'filter:grayscale(0); cursor:pointer;');
+    })
+});
 
 banner1.addEventListener('mouseleave', () => {
     panels0.forEach(element => {
@@ -54,6 +64,11 @@ banner2.addEventListener('mouseleave', () => {
 });
 banner3.addEventListener('mouseleave', () => {
     panels2.forEach(element => {
+        element.setAttribute('style', 'filter:grayscale(1); transition:filter 4s ease-in;');
+    });
+});
+banner4.addEventListener('mouseleave', () => {
+    panels3.forEach(element => {
         element.setAttribute('style', 'filter:grayscale(1); transition:filter 4s ease-in;');
     });
 });
@@ -85,6 +100,15 @@ banner3.addEventListener('click', () => {
     modSubTitle.textContent = 'Sous Titre Banner 3';
     const modImage = document.querySelector('.modal .image');
     modImage.innerHTML = '<img src="./img/2a.jpg">';
+    modal.setAttribute('style', 'visibility:visible; background-color:#0009; transform:scale(1) translate3D(-50%, -50%, 500px);');
+});
+banner4.addEventListener('click', () => {
+    const modTitle = document.querySelector('.modal .titre');
+    modTitle.textContent = 'Titre Banner 4';
+    const modSubTitle = document.querySelector('.modal .sousTitre');
+    modSubTitle.textContent = 'Sous Titre Banner 4';
+    const modImage = document.querySelector('.modal .image');
+    modImage.innerHTML = '<img src="./img/3a.jpg">';
     modal.setAttribute('style', 'visibility:visible; background-color:#0009; transform:scale(1) translate3D(-50%, -50%, 500px);');
 });
 
