@@ -8,7 +8,6 @@ const panels0 = document.querySelectorAll('.panel0');
 const panels1 = document.querySelectorAll('.panel1');
 const panels2 = document.querySelectorAll('.panel2');
 const panels3 = document.querySelectorAll('.panel3');
-// const screen = document.querySelector('.screen')
 const hautImg = -200;
 const modal = document.querySelector('.modal');
 
@@ -27,8 +26,6 @@ function AffVal() {
     banner4.setAttribute('style', 'transform:rotateY(' +
         valCursor.value + 'deg) translateY(' +
         (hautImg + (valCursor.value / 3.6) * -1) + 'px);');
-    // screen.setAttribute('style', 'transform:translate( -50%, ' +
-        // (((valCursor.value / 3.6) * -1) - 146) + 'px);');
 }
 
 banner1.addEventListener('mouseover', () => {
@@ -87,7 +84,7 @@ banner2.addEventListener('click', () => {
     const modTitle = document.querySelector('.modal .titre');
     modTitle.textContent = 'Titre Banner 2';
     const modSubTitle = document.querySelector('.modal .sousTitre');
-    modSubTitle.textContent = 'Sous Titre Banner 2';
+    modSubTitle.innerHTML = 'Sous Titre Banner 2 <a href="https://dark.pajor.go.yn.fr/" target=_blank>Voir</a>';
     const modImage = document.querySelector('.modal .image');
     modImage.innerHTML = '<img src="./img/1a.jpg">';
     modal.setAttribute('style', 'visibility:visible; background-color:#0009; transform:scale(1) translate3D(-50%, -50%, 500px);');
@@ -109,7 +106,7 @@ banner4.addEventListener('click', () => {
     modSubTitle.textContent = 'Sous Titre Banner 4';
     const modImage = document.querySelector('.modal .image');
     modImage.innerHTML = '<img src="./img/3a.jpg">';
-    modal.setAttribute('style', 'visibility:visible; background-color:#0009; transform:scale(1) translate3D(-50%, -50%, 500px);');
+    modal.setAttribute('style', 'visibility:visible; background-color:#000c; transform:scale(1) translate3D(-50%, -50%, 500px);');
 });
 
 

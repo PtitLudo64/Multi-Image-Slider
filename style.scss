@@ -1,11 +1,17 @@
 $largImg: 600;
-$hautImg: 200;
+$hautImg: 223;
+$nbImages: 3;
 $nbPanel: 10;
 $Zaxe: 379;
+$deuxPi: 3.14159265359 * 2;
+$circCercle: $deuxPi * $Zaxe;
+$circBanner: $circCercle / $nbImages;
 
-$largPanel: ($largImg / $nbPanel);
+$largPanel: $circBanner / $nbPanel;
 
-$nbImages: 4;
+$largBanner: $nbImages * $nbPanel;
+// $largBanner: $nbImages * $nbPanel;
+
 $stepY: 50 / $nbImages;
 $stepTheta: 360 / $nbImages;
 $pCent: '%';
@@ -36,6 +42,7 @@ body {
     perspective: 1500px;
     perspective-origin: 0px 0px;
     transform-style: preserve-3d;
+    transform: translateY(-50px);
 }
 
 .modal {
@@ -55,6 +62,7 @@ body {
     background-color: transparent;
     transform: translate3D(-50%, -50%, 0px) scale(0.01);
     box-shadow: 0px 0px 10px 5px rgba(var(--couleur), .5);
+    border: 5px ridge rgba(var(--couleur), 1);
     transition: all .5s ease;
 
     .titre {
@@ -81,7 +89,13 @@ body {
     .sousTitre {
         grid-area: SousTitre;
         padding: 5px;
-        pointer-events: none;
+        // pointer-events: none;
+
+        a {
+            text-decoration: none;
+            color: red;
+            // cursor: pointer !important;
+        }
     }
 }
 
@@ -91,16 +105,13 @@ body {
 .banner4 {
     display: flex;
     transform-style: preserve-3d;
-    transform: translateY(#{$hautImg *-1}px);
-    // &:first-child {
-    //     box-shadow: inset 0 0 1px 1px rgba(var(--couleur), 0.5);
-    // }
+    transform: translateY(#{$hautImg *-1}px) rotateY(82.84deg);
 }
 
 @for $j from 0 to $nbImages {
     .panel#{$j} {
         position: absolute;
-        width: #{$largPanel+2}px;
+        width: #{$largPanel+2}px; // +2px pour éviter les bandes noires
         height: 400px;
         overflow: hidden;
         filter: grayscale(1);
@@ -115,31 +126,21 @@ body {
     @for $i from 0 to $nbPanel {
         .panel#{$j}:nth-child(#{$i +1}) {
             --left: #{$largPanel * $i * -1}px;
-            --angle#{$j}: #{(360deg /40 *$i) + $stepTheta*$j};
-            @if $i == 0 {
-                border-left: 5px solid rgba(var(--couleur), 1);
-            }
-            @else if $i== 9 {
-                border-right: 5px solid rgba(var(--couleur), 1);
-            }
-            border-top: 5px solid rgba(var(--couleur), 1);
-            border-bottom: 5px solid rgba(var(--couleur), 1);
+            --angle#{$j}: #{(360deg / $largBanner *$i) + $stepTheta*$j};
+            // @if $i == 0 {
+            //     border-left: 2px ridge rgba(var(--couleur), 1);
+            // }
+            // @else if $i== 9 {
+            //     border-right: 2px ridge rgba(var(--couleur), 1);
+            // }
+            // border-top: 2px ridge rgba(var(--couleur), 1);
+            // border-bottom: 2px ridge rgba(var(--couleur), 1);
         }
 
     }
 }
 
 
-
-// .screen {
-//     position: absolute;
-//     width: 550px;
-//     height: 250px;
-//     // background-color: #f00;
-//     border-radius: 25%;
-//     background-image: linear-gradient(90deg, transparent, #000a 15%, #000d, #000d, #000a 85%, transparent);
-//     transform: translate(-50%, -146px);
-// }
 
 #valeur {
     position: absolute;
